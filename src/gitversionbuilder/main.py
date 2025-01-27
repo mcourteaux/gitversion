@@ -5,8 +5,9 @@ def get_version(git_directory):
     return versioninforeader.from_git(git_directory)
 
 
-def create_version_file(git_directory, output_file, lang):
+def create_version_file(git_directory, output_file, lang, namespace):
     version_info = get_version(git_directory)
+    version_info.namespace = namespace
     output = _output(version_info, lang=lang)
     _write_to_file(output_file, output)
 

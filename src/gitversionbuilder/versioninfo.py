@@ -16,12 +16,13 @@ class TagInterpretation(EqualityMixin):
 
 
 class VersionInfo(EqualityMixin):
-    def __init__(self, git_tag_name, git_commits_since_tag, git_commit_id, git_tag_exists, modified_since_commit):
+    def __init__(self, git_tag_name, git_commits_since_tag, git_commit_id, git_tag_exists, modified_since_commit, namespace=None):
         assert (isstring(git_tag_name))
         assert (isinstance(git_commits_since_tag, int))
         assert (isstring(git_commit_id))
         assert (isinstance(git_tag_exists, bool))
         assert (isinstance(modified_since_commit, bool))
+        self.namespace = namespace
         self.git_tag_name = git_tag_name
         self.git_commits_since_tag = git_commits_since_tag
         self.git_commit_id = git_commit_id
