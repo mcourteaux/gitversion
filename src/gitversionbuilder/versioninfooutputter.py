@@ -47,22 +47,19 @@ class _CppFormatter(_Formatter):
 // DO NOT MODIFY!
 // ---------------------------------------------------
 
-#pragma once
-
 namespace %s {
 namespace version {
-  constexpr const char *VERSION_STRING = "%s";
-  constexpr const char *GIT_TAG_NAME = "%s";
-  constexpr const unsigned int GIT_COMMITS_SINCE_TAG = %d;
-  constexpr const char *GIT_COMMIT_ID = "%s";
-  constexpr bool MODIFIED_SINCE_COMMIT = %s;
-  constexpr bool IS_DEV_VERSION = %s;
+  const char *VERSION_STRING = "%s";
+  const char *GIT_TAG_NAME = "%s";
+  const unsigned int GIT_COMMITS_SINCE_TAG = %d;
+  const char *GIT_COMMIT_ID = "%s";
+  bool MODIFIED_SINCE_COMMIT = %s;
+  bool IS_DEV_VERSION = %s;
 
-  constexpr const char *BUILD_SYSTEM = "%s";
+  const char *BUILD_SYSTEM = "%s";
 %s
 }
 }
-
 """ % (version_info.namespace,
        version_info.version_string, version_info.git_tag_name, version_info.git_commits_since_tag,
        version_info.git_commit_id, str(version_info.modified_since_commit).lower(), str(version_info.is_dev).lower(),
